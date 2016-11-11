@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
+import { RestTestResults } from './rest-test-results';
+
 /*
   Generated class for the TKTestAnswers provider.
 
@@ -11,7 +13,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class TKTestAnswers {
 
-  constructor(public http: Http) {
+  constructor(public http: Http,
+              public TestResultsRest: RestTestResults) {
     console.log('Hello TKTestAnswers Provider');
   }
   
@@ -45,10 +48,18 @@ export class TKTestAnswers {
     this.answerCategories[this.categoriesStack.pop().toLowerCase()]--;
   }
   
-  saveTest = function(test) {
+  saveTest = function(test, token) {
     //var tempTests = $window.localStorage.tests === undefined ? [] : JSON.parse($window.localStorage.tests);
     //tempTests.push(test);
     //$window.localStorage.tests = JSON.stringify(tempTests);
+    
+    this.TestResultsRest.save(test, token)
+    .map(res => res.json())
+    .subscribe(res => {
+      //alls good
+    }, err => {
+      alert("Warning Will Robinson!");
+    });
     
     //TestResultsRest.save(test)
     // TODO: convert promise formatting
@@ -59,21 +70,11 @@ export class TKTestAnswers {
     // });
   };
   
-  getTests = function(token) {
-    //return $window.localStorage.tests ?
-    //JSON.parse($window.localStorage.tests) : [];
-    return [];
-    //return TestResultsRest.getAll(token);
-    // TODO: convert promise formatting
-    // .then(function(res) {
-    //   console.log(res.data);
-    //   return res.data;
-    // }, function(err) {
-    //   console.log(err);
-    // });
+  getTests(token, userId) {
+    return this.TestResultsRest.getAll(token, userId);
   };
   
-  setAnswers = function(answers) {
+  setAnswers(answers) {
     this.answerCategories = answers;  
   };
 }

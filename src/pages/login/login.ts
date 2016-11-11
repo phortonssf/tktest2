@@ -41,9 +41,8 @@ export class Login {
       window.localStorage.setItem('token', res.id);
       window.localStorage.setItem('userId', res.userId);
       this.navCtrl.setRoot(Lobby);
-    },
-      err => {
-        alert("Something went really wrong.");
+    }, err => {
+      alert("Warning Will Robinson!");
     });
   }
 }

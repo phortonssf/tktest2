@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
+import { Lobby } from '../lobby/lobby';
+
+import { TKTestAnswers } from '../../providers/tk-test-answers';
 /*
   Generated class for the Result page.
 
@@ -17,6 +20,10 @@ export class Result {
 
   ionViewDidLoad() {
     console.log('Hello Result Page');
+  }
+  
+  toLobby() {
+    this.navCtrl.setRoot(Lobby);
   }
 
 }

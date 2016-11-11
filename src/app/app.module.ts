@@ -8,6 +8,8 @@ import { Login } from '../pages/login/login';
 import { Register } from '../pages/register/register';
 import { Lobby } from '../pages/lobby/lobby';
 import { Question } from '../pages/question/question';
+import { Result } from '../pages/result/result';
+import { History } from '../pages/history/history';
 
 //TKTest Rest Services
 import { RestQuestions } from '../providers/rest-questions';
@@ -25,7 +27,9 @@ const injections = [
   Login,
   Register,
   Lobby,
-  Question
+  Question,
+  Result,
+  History
 ]
 @NgModule({
   declarations: injections,

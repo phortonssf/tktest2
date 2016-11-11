@@ -27,7 +27,7 @@ export class TKTestQuestions {
     .subscribe(res => {
       this.questions = res;
     }, err => {
-      alert("Something went really wrong.");
+      alert("Warning Will Robinson!");
     });
   }
   

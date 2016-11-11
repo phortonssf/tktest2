@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 
 import { Question } from '../question/question';
 import { Landing } from '../landing/landing';
+import { History } from '../history/history';
 
 import { RestSSFUsers } from '../../providers/rest-ssf-users';
 import { TKTestQuestions } from '../../providers/tk-test-questions';
@@ -50,8 +51,8 @@ export class Lobby {
     });
   }
   
-  myResults() {
-    
+  toHistory() {
+    this.navCtrl.push(History);
   }
   
 }

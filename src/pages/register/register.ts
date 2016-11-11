@@ -37,9 +37,8 @@ export class Register {
       window.localStorage.setItem('token', res.token);
       window.localStorage.setItem('userId', res.id);
       this.navCtrl.setRoot(Lobby);
-    },
-      err => {
-        alert("Something went really wrong.");
+    }, err => {
+      alert("Warning Will Robinson!");
     });
   }
 

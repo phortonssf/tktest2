@@ -14,7 +14,7 @@
 
 <ion-content padding>
   
-  <ion-card>
+  <ion-card (click)="buttonClicked('A')">
     <ion-card-header>
       Option {{questionA.Answer_ID}}
     </ion-card-header>
@@ -24,7 +24,7 @@
     </ion-card-content>
   </ion-card>
   
-  <ion-card>
+  <ion-card (click)="buttonClicked('B')">
     <ion-card-header>
       Option {{questionB.Answer_ID}}
     </ion-card-header>
@@ -33,8 +33,4 @@
       {{questionB.Text}}
     </ion-card-content>
   </ion-card>
-  
-  <button ion-button class="button-block" (click)="submitAnswer()">
-    Next Question
-  </button>
 </ion-content>
