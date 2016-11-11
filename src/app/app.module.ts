@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { ChartModule } from 'ng2-chartjs2';
 
 //States
 import { Landing } from '../pages/landing/landing';
@@ -34,7 +35,8 @@ const injections = [
 @NgModule({
   declarations: injections,
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    ChartModule
   ],
   bootstrap: [IonicApp],
   entryComponents: injections,

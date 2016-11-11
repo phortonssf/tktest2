@@ -7,6 +7,7 @@ import { History } from '../history/history';
 
 import { RestSSFUsers } from '../../providers/rest-ssf-users';
 import { TKTestQuestions } from '../../providers/tk-test-questions';
+import { TKTestAnswers } from '../../providers/tk-test-answers';
 /*
   Generated class for the Lobby page.
 
@@ -21,7 +22,8 @@ export class Lobby {
 
   constructor(public navCtrl: NavController,
               public SSFUsersRest: RestSSFUsers,
-              public TKTestQuestionsServ: TKTestQuestions) {
+              public TKTestQuestionsServ: TKTestQuestions,
+              public TKTestAnswersServ: TKTestAnswers) {
     TKTestQuestionsServ.all();
   }
 
@@ -46,6 +48,7 @@ export class Lobby {
   }
   
   takeTest() {
+    this.TKTestAnswersServ.resetAnswers();
     this.navCtrl.push(Question, {
       questionId: 1
     });

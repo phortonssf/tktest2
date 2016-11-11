@@ -49,10 +49,6 @@ export class TKTestAnswers {
   }
   
   saveTest = function(test, token) {
-    //var tempTests = $window.localStorage.tests === undefined ? [] : JSON.parse($window.localStorage.tests);
-    //tempTests.push(test);
-    //$window.localStorage.tests = JSON.stringify(tempTests);
-    
     this.TestResultsRest.save(test, token)
     .map(res => res.json())
     .subscribe(res => {
@@ -60,14 +56,6 @@ export class TKTestAnswers {
     }, err => {
       alert("Warning Will Robinson!");
     });
-    
-    //TestResultsRest.save(test)
-    // TODO: convert promise formatting
-    // .then(function(res) {
-    //   console.log(res);
-    // }, function(err) {
-    //   console.log(err);
-    // });
   };
   
   getTests(token, userId) {

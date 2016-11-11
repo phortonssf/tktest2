@@ -29,6 +29,7 @@ export class Question {
               public TKTestAnswersServ: TKTestAnswers,
               public TKResultsButtonServ: TKResultsButton) {
     this.questionId = navParams.get('questionId');
+    this.isSubmitted = false;
   }
   
   ionViewDidLoad() {
@@ -55,13 +56,16 @@ export class Question {
     });
   }
   
-  
+  isSubmitted = false;
   buttonClicked(option) {
     var category = this["question" + option].Style;
     this.TKTestAnswersServ.saveAnswer(category);
     
     if(this.questionId == 30) {
-      this.performRequest();
+      if(!this.isSubmitted) {
+        this.isSubmitted = true;
+        this.performRequest();
+      }
     }
     else {
       nextQ(this.navCtrl, this.questionId);
@@ -80,7 +84,7 @@ export class Question {
 
 let nextQ = function(nav, index) {
   //TODO remove this index increment by 4
-  index = 29;
+  // index = 29;
   nav.push(Question, {
     questionId: ++index
   });
