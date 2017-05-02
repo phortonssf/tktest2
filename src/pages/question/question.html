@@ -12,9 +12,9 @@
 
 </ion-header>
 
-<ion-content padding>
+<ion-content padding >
   
-  <ion-card (click)="buttonClicked('A')">
+  <ion-card (click)="buttonClicked('A')" *ngIf = 'questionA'>
     <ion-card-header>
       Option {{questionA.Answer_ID}}
     </ion-card-header>
@@ -24,7 +24,7 @@
     </ion-card-content>
   </ion-card>
   
-  <ion-card (click)="buttonClicked('B')">
+  <ion-card (click)="buttonClicked('B')"*ngIf = 'questionB'>
     <ion-card-header>
       Option {{questionB.Answer_ID}}
     </ion-card-header>

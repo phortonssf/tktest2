@@ -36,13 +36,13 @@ export class Login {
       return alert("Please fill in all of the required fields.");
 
     this.SSFUsersRest.login(this.user)
-    .map(res => res.json())
-    .subscribe(res => {
-      window.localStorage.setItem('token', res.id);
-      window.localStorage.setItem('userId', res.userId);
-      this.navCtrl.setRoot(Lobby);
-    }, err => {
-      alert("Warning Will Robinson!");
-    });
-  }
+      .map(res => res.json())
+      .subscribe(res => {
+        window.localStorage.setItem('token', res.id);
+        window.localStorage.setItem('userId', res.userId);
+        this.navCtrl.setRoot(Lobby);
+      }, err => {
+        alert("Warning Will Robinson!");
+      });
+    }
 }

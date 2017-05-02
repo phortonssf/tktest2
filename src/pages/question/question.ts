@@ -46,6 +46,7 @@ export class Question {
     //     "Text": "There are times when I let others take responsibility for solving the problem.",
     //     "Style": "Avoiding"
     //   }];
+    //testinfo is the 2 questions results array
     this.testInfo = this.TKTestQuestionsServ.getQuestion(this.questionId);
     this.testInfo.forEach(function(infoDict) {
       if(infoDict.Answer_ID === "A")
@@ -55,8 +56,22 @@ export class Question {
       }
     });
   }
+  If question_number = questionID then display those questions
   
-  isSubmitted = false;
+  /* From tk-testquestions service
+   getQuestion(questionId) {
+    var results = [];
+    this.questions.forEach(function(question) {
+      //Question Id starts at 1. If question number equals questionID push
+      //into results array then return results.
+      if(question.Question_Number == questionId)
+        results.push(question);
+    });
+    return results;
+  }*/
+  
+isSubmitted = false;
+  
   buttonClicked(option) {
     var category = this["question" + option].Style;
     this.TKTestAnswersServ.saveAnswer(category);
@@ -68,9 +83,11 @@ export class Question {
       }
     }
     else {
+      //pushes to next question
       nextQ(this.navCtrl, this.questionId);
     }
   }
+  //executes after 30th question
   performRequest() {
     var answersDict = this.TKTestAnswersServ.getAnswers();
     var date = new Date();
@@ -81,7 +98,7 @@ export class Question {
     this.navCtrl.setRoot(Result);
   }
 }
-
+//Function that take nav and index value pushes to next question
 let nextQ = function(nav, index) {
   //TODO remove this index increment by 4
   // index = 29;

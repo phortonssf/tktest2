@@ -17,7 +17,7 @@ export class RestQuestions {
   
   baseUrl = 'https://tk-backend-spectrevolve.c9users.io/api/'
   path = 'Questions/'
-  
+ 
   get(token) {
     return this.http.get(
       this.baseUrl + this.path + 

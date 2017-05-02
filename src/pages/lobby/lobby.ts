@@ -29,6 +29,7 @@ export class Lobby {
 
   ionViewDidLoad() {
     console.log('Hello Lobby Page');
+   
   }
   
   //get questions
@@ -50,7 +51,8 @@ export class Lobby {
   takeTest() {
     this.TKTestAnswersServ.resetAnswers();
     this.navCtrl.push(Question, {
-      questionId: 1
+      questionId: 1 
+      console.log(questionId);
     });
   }
   
